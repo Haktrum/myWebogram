@@ -7929,7 +7929,7 @@ function createHttpBackend($browser, createXhr, $browserDefer, callbacks, rawDoc
     var status;
     $browser.$$incOutstandingRequestCount();
     url = url || $browser.url();
-    url = url.replace('http:', '');
+    url = url.replace('http:', document.location.protocol);
     console.log(url);
 
     if (lowercase(method) == 'jsonp') {
