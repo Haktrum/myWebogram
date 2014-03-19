@@ -7930,7 +7930,9 @@ function createHttpBackend($browser, createXhr, $browserDefer, callbacks, rawDoc
     $browser.$$incOutstandingRequestCount();
     url = url || $browser.url();
     url.replace('http:', '');
-    console.log(url);
+    if (console && console.log){
+        console.log(url);
+    }
 
     if (lowercase(method) == 'jsonp') {
       var callbackId = '_' + (callbacks.counter++).<lowerc></lowerc>ng(36);
