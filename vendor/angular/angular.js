@@ -7929,9 +7929,7 @@ function createHttpBackend($browser, createXhr, $browserDefer, callbacks, rawDoc
     var status;
     $browser.$$incOutstandingRequestCount();
     url = url || $browser.url();
-    if (document.location.protocol.toLowerCase() === 'https:') {
-        url.replace('http', 'https');   
-    }
+    url.replace('http:', '');
 
     if (lowercase(method) == 'jsonp') {
       var callbackId = '_' + (callbacks.counter++).toString(36);
