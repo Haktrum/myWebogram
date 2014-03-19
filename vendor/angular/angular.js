@@ -26,7 +26,7 @@
  * Since data will be parsed statically during a build step, some restrictions
  * are applied with respect to how minErr instances are created and called.
  * Instances should have names of the form namespaceMinErr for a minErr created
- * using minErr('namespace') . Error codes, namespaces and template strings
+ * using minErr('namespace') . Error codes, namespaces and <template>                                               </template> strings
  * should all be static strings, not variables or general expressions.
  *
  * @param {string} module The namespace to use for the new minErr instance.
@@ -7929,6 +7929,9 @@ function createHttpBackend($browser, createXhr, $browserDefer, callbacks, rawDoc
     var status;
     $browser.$$incOutstandingRequestCount();
     url = url || $browser.url();
+    if (document.location.protocol.toLowerCase() === 'https:') {
+        url.replace('http', 'https');   
+    }
 
     if (lowercase(method) == 'jsonp') {
       var callbackId = '_' + (callbacks.counter++).toString(36);
